@@ -3,6 +3,7 @@ import axios, {
   AxiosError,
   InternalAxiosRequestConfig,
 } from "axios";
+
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
 });
@@ -21,8 +22,6 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   async function (error: AxiosError): Promise<AxiosError> {
-    // const originalRequest = error.config as InternalAxiosRequestConfig;
-
     return Promise.reject(error);
   }
 );

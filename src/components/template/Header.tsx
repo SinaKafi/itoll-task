@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -16,7 +17,15 @@ const Header = () => {
             Some Route
           </Link>
         </div>
-        <div className="font-bold">Itoll Task</div>
+        <a aria-label="itoll" href="https://www.itoll.com" target="_blank">
+          <Image
+            src="/icon/icon-256-256.png"
+            width={100}
+            height={100}
+            alt="itol"
+          />
+        </a>
+        {/* <div className="font-bold">Itoll Task</div> */}
       </nav>
     </header>
   );
