@@ -22,12 +22,6 @@ export default function Error({
         try again later.
       </p>
       <p className="text-gray-500 mb-4">Error Details: {error.message}</p>
-      <button
-        onClick={reset}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-200"
-      >
-        Try Again
-      </button>
     </div>
   );
 }

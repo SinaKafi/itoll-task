@@ -19,7 +19,11 @@ export default async function Home() {
       </div>
     );
   }
-
+  // const { data, error, isLoading } = useQuery({
+  //   queryKey: ['products'],
+  //   queryFn: fetchProducts,
+  //   staleTime: 1000 * 60 * 5, // Cache for 5 minutes
+  // });
   return (
     <div className="max-w-7xl mx-auto p-4 md:p-8">
       <h1 className="text-3xl font-bold text-center mb-8">Product List</h1>
