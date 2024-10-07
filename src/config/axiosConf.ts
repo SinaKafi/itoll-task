@@ -1,5 +1,4 @@
 import axios, {
-  AxiosRequestConfig,
   AxiosResponse,
   AxiosError,
   InternalAxiosRequestConfig,
@@ -22,7 +21,7 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   async function (error: AxiosError): Promise<AxiosError> {
-    const originalRequest = error.config as InternalAxiosRequestConfig;
+    // const originalRequest = error.config as InternalAxiosRequestConfig;
 
     return Promise.reject(error);
   }

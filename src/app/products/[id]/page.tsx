@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import { getProductDetail, getProductList } from "../../api/route";
 import ProductDetailContent from "@/components/ProductDetailContent";
 import Loader from "@/app/Loader";
+import { getProductDetail, getProductList } from "@/api/products";
 export async function generateStaticParams() {
   const data = await getProductList();
   return data.map((product) => ({

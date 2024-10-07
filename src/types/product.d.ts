@@ -12,5 +12,3 @@ export interface IProduct extends IRating {
   category: string;
   image: string;
 }
-// full on site
-// 7tire

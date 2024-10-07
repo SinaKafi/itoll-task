@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-import Link from "next/link";
 import Header from "../template/Header";
 import Footer from "../template/Footer";
 

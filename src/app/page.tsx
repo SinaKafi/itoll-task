@@ -1,8 +1,7 @@
 import { Suspense } from "react";
-import { getProductList } from "./api/route";
 import ProductCard from "@/components/ProductCard";
 import Loader from "./Loader";
-import Error from "./error";
+import { getProductList } from "@/api/products";
 
 export default async function Home() {
   let data;
