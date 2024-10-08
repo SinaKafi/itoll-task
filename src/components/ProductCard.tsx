@@ -34,7 +34,6 @@ const ProductCard: React.FC<IProduct> = (item) => {
           Rating: {item.rating.rate} ({item.rating.count} reviews)
         </span>
       </div>
-      {/* </div> */}
     </Link>
   );
 };

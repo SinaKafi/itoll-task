@@ -7,26 +7,27 @@ export default function RegisterServiceWorker() {
   useEffect(() => {
     const registerSW = async () => {
       if ("serviceWorker" in navigator) {
-        const registration = await navigator.serviceWorker.register("/sw.js");
-        console.log(
-          "Service Worker registered with scope:",
-          registration.scope
-        );
+        try {
+          const registration = await navigator.serviceWorker.register("/sw.js");
 
-        // Force update check on initial load
-        registration.update();
+          registration.update();
 
-        registration.onupdatefound = () => {
-          const newSW = registration.installing;
-          if (newSW) {
-            newSW.onstatechange = () => {
-              if (newSW.state === "installed" && navigator) {
-                // A new update is available
-                setIsUpdateAvailable(true);
-              }
-            };
-          }
-        };
+          registration.onupdatefound = () => {
+            const newSW = registration.installing;
+            if (newSW) {
+              newSW.onstatechange = () => {
+                if (
+                  newSW.state === "installed" &&
+                  navigator.serviceWorker.controller
+                ) {
+                  setIsUpdateAvailable(true);
+                }
+              };
+            }
+          };
+        } catch (error) {
+          console.log(error);
+        }
       }
     };
 
@@ -37,12 +38,12 @@ export default function RegisterServiceWorker() {
     if (navigator.serviceWorker) {
       navigator.serviceWorker.getRegistration().then((registration) => {
         if (registration && registration.waiting) {
-          registration.waiting.postMessage("SKIP_WAITING"); // Activate the new service worker
+          registration.waiting.postMessage("SKIP_WAITING");
         }
       });
     }
-    setIsUpdateAvailable(false); // Reset update state
-    window.location.reload(); // Reload the page to apply the update
+    setIsUpdateAvailable(false);
+    window.location.reload();
   };
 
   return (

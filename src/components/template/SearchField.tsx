@@ -7,10 +7,13 @@ export default function SearchForm() {
   const router = useRouter();
   const [inputValue, setInputValue] = useState("");
 
-  const handleSearch = () => {
-    router.push(`?search=${encodeURIComponent(inputValue)}`);
+  const removeSearch = () => {
+    setInputValue("");
+    router.push(`/`);
   };
-
+  const handleSearch = () => {
+    router.push(inputValue ? `?search=${encodeURIComponent(inputValue)}` : "/");
+  };
   useDebounceEffect(
     () => {
       handleSearch();
@@ -39,8 +42,7 @@ export default function SearchForm() {
             type="button"
             onClick={(e) => {
               e.preventDefault();
-              setInputValue("");
-              router.push(`?search=${""}`);
+              removeSearch();
             }}
             className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
           >

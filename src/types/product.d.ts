@@ -12,3 +12,12 @@ export interface IProduct extends IRating {
   category: string;
   image: string;
 }
+
+interface IProductListResponse {
+  data?: IProduct[];
+  error?: AxiosError;
+}
+interface IProductDetailResponse {
+  data?: IProduct;
+  error?: AxiosError;
+}

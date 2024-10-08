@@ -25,12 +25,12 @@ export default function MainLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#000000" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/icon/icon-48-48.png" sizes="any" />
         <link rel="apple-touch-icon" href="/icon/icon-192-192.png" />
       </head>
       <body className="flex flex-col w-full min-h-screen">
-        <Header />
         <RegisterServiceWorker />
-
+        <Header />
         <main className="flex-grow mt-16 px-4">{children}</main>
         <Footer />
       </body>
